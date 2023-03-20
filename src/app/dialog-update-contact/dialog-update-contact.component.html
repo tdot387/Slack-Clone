@@ -1,0 +1,25 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+<h1 class="title-dialog" mat-dialog-title>Edit contact data</h1>
+<div mat-dialog-content>
+  <div class="position-input">
+    <mat-form-field class="mr-16 mt-16" appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input [attr.disabled]="loading" [formControl]="emailFormControl" matInput placeholder="E-mail">
+      <mat-error *ngIf="emailFormControl.hasError('required')">E-mail is required</mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('email')">Invalid email address</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="mt-16" appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input [attr.disabled]="loading" [formControl]="phoneFormControl" matInput placeholder="Phone">
+      <mat-error *ngIf="phoneFormControl.hasError('required')">Phone number is required</mat-error>
+      <mat-error *ngIf="phoneFormControl.hasError('pattern')">Invalid phone number</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="buttons">
+    <button mat-stroked-button (click)="closeDialogContact()" >Cancel</button>
+    <button mat-raised-button color="primary" (click)="saveContact()">Save</button>
+  </div>
+</div>

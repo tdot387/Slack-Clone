@@ -1,0 +1,12 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+<h1 class="title-dialog" mat-dialog-title>Permitted</h1>
+<div mat-dialog-content>
+  <div>
+    You do not have sufficient permission to create a channel. Please contact the administrator.
+  </div>
+
+  <div class="buttons mt-16">
+    <button mat-stroked-button (click)="closeDialogChannel()" >I understand</button>
+  </div>
+</div>

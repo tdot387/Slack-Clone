@@ -1,0 +1,233 @@
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  animation: linear;
+  animation-name: zoomIn;
+  animation-duration: 0.5s;
+  gap: 14px;
+
+  @media screen and (max-width: 600px) {
+    padding-left: 12px;
+    padding-right: 12px;
+    }
+
+  @media screen and (max-height: 550px) {
+    height: 122vh;
+  }
+
+}
+
+.forgot-password-link {
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  span {
+    font-weight: 700;
+        color: #611f69;
+        cursor: pointer;
+  }
+}
+
+h1 {
+    font-size: 48px;
+
+    @media screen and (max-width: 600px) {
+      font-size: 34px;
+    }
+}
+
+p {
+    font-size: 18px;
+
+    @media screen and (max-width: 600px) {
+      	font-size: 16px;
+    }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.login {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #611f69;
+  border-radius: 4px;
+  border: unset;
+  padding: 15px 5px;
+  cursor: pointer;
+
+
+  &:hover {
+    opacity: 0.95;
+  }
+}
+
+.guest {
+  color: #611f69;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: white;
+  border-radius: 4px;
+  border: 2px solid #611f69;
+  padding: 15px 5px;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid #611f69;
+    opacity: 0.75;
+  }
+}
+
+.new-user-link {
+    padding-top: 16px;
+
+    span {
+        font-weight: 700;
+        color: #611f69;
+        cursor: pointer;
+    }
+}
+
+// css for create new User 
+
+.new-user-headline {
+  margin-bottom: 40px;
+}
+
+.wrong-password-text {
+  text-align: center;
+  color: red;
+  position: relative;
+  bottom: 20px;
+  cursor: default;
+}
+
+
+.container-new-user , .container-reset {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: ease-in-out;
+  animation-name: fromLeftToRight;
+  animation-duration: 0.4s;
+}
+
+.go-back {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.mat-mdc-fab.mat-primary {
+    background-color: #611f69;
+}
+
+// for push text 
+
+.push-new-user {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  animation: linear;
+  animation-name: fromBottomToMiddle;
+  animation-duration: 3s;
+
+  span {
+    position: absolute;
+    padding: 20px 40px;
+    background-color: #611f69;
+    color: white;
+    font-size: 18px;
+    border-radius: 6px;
+    animation: alternate ;
+    animation-name: fromBottomToMiddle;
+    animation-duration: 1.5s;
+
+  }
+}
+
+// css Reset 
+
+.reset-headline {
+  margin-bottom: 40px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 30px;
+  }
+}
+
+.reset-text {
+  text-align: center;
+  color: red;
+  position: relative;
+  cursor: default;
+}
+
+
+
+
+// extras
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.red {
+  color: red;
+}
+
+.white {
+  color: white;
+}
+
+@keyframes fromLeftToRight {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

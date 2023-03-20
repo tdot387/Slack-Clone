@@ -1,0 +1,90 @@
+app-header{
+    height: 44px;
+}
+
+.content {
+    display: flex;
+    width: 100vw;
+    max-width: 100%;
+    height: calc(100vh - 64px);
+
+    mat-drawer {
+        width: 13%;
+        position: unset;
+        overflow: auto;
+    }
+
+    app-messages-history {
+        flex: 1 1 auto;
+        display: flex;
+        z-index: 1;
+        background-color: white;
+
+        @media screen and (max-width: 620px){
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    app-navbar-right {
+        width: fit-content;
+
+        @media screen and (max-width: 620px){
+
+            position: fixed;
+            z-index: 3;
+            border: unset;
+        }
+
+    }
+
+    app-navbar-left {
+        overflow: auto;
+
+        @media screen and (max-width: 620px){
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100vh;
+            z-index: 1;
+        }
+
+    }
+}
+
+.closeNavbar {
+    animation: vanishOut 125ms ease-in-out;
+    transform: translateX(-200%);
+    position: absolute;
+}
+
+.mobile-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #2B092A;
+    z-index: 1;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+    border-top: 2px solid gray;
+    display: none;
+
+    @media screen and (max-width: 620px) {
+
+        display: flex;
+    }
+}
+ 
+mat-icon {
+    color: white;
+    cursor: pointer;
+}
+
+.d-none {
+    display: none;
+}
+

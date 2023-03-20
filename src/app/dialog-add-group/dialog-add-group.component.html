@@ -1,0 +1,32 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+<h1 *ngIf="!isGuest" class="title-dialog" mat-dialog-title>Create a new group</h1>
+<h1 *ngIf="isGuest" class="title-dialog-guest" mat-dialog-title>Permitted</h1>
+
+<div mat-dialog-content *ngIf="!isGuest">
+  <div>
+    <mat-form-field class="mr-16 mt-16" appearance="outline">
+      <mat-label>Enter group name</mat-label>
+      <input type="text" [attr.disabled]="loading" matInput placeholder="Group name" [(ngModel)]="group.headline"
+        required>
+    </mat-form-field>
+
+    <div class="buttons">
+      <button mat-stroked-button (click)="closeDialogGroup()">Cancel</button>
+      <button *ngIf="!isGuest" mat-raised-button color="primary" (click)="saveGroup()">Save</button>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-content *ngIf="isGuest">
+  <div>
+    <div>
+      <p>You are logged in as guest. In order to user this function, please create a Slack Clone account.</p>
+    </div>
+
+    <div class="buttons">
+      <button mat-stroked-button (click)="closeDialogGroup()">Cancel</button>
+      <button *ngIf="!isGuest" mat-raised-button color="primary" (click)="saveGroup()">Save</button>
+    </div>
+  </div>
+</div>

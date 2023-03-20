@@ -1,0 +1,100 @@
+.toolbar-header {
+    background-color: #2B092A;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    
+    @media screen and (max-width: 620px) {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        height: 63px !important;
+    }
+
+    a {
+        text-decoration: none;
+        color: white
+    }
+}
+
+mat-icon {
+    color: white;
+}
+
+.collapse-menu {
+    cursor: pointer;
+
+    @media screen and (max-width: 620px) {
+        display: none;
+    }
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    color: white;
+}
+
+
+.header-mid {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+mat-form-field {
+    background-color: white;
+}
+
+.search-bar {
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-self: center;
+    border-radius: 5px;
+    padding: 5px 5px;
+    border: 1px solid gray;
+
+    @media screen and (max-width: 620px) {
+        display: none;
+    }
+
+    input {
+        background: transparent;
+        flex: 1;
+        border: 0;
+        outline: none;
+        padding: 0px 10px;
+        font-size: 14px;
+        color: white;
+        height: 63;
+    }
+
+    button {
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        background: transparent;
+        padding-top: 3px;
+    }
+
+    button img {
+        width: 15px;
+    }
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-pic {
+    width: 22px;
+    border-radius: 5px;
+    cursor: pointer;
+}

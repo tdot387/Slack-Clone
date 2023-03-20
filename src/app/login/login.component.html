@@ -1,0 +1,228 @@
+<div class="container-login" >
+  <h1>Welcome to Slack</h1>
+
+  <p>We suggest using the <b>email address that you use at work.</b></p>
+
+  <form class="example-form" (ngSubmit)="UserLogin()" #myForm ngNativeValidate>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        placeholder="Ex. pat@example.com"
+        #loginEmail
+        required
+      />
+    </mat-form-field>
+
+    <div class="example-container column">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" #loginPassword required />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          type="button"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <span [ngClass]="{'red': toggle, 'white': !toggle}"  class="wrong-password-text">Wrong Email or Password!!</span>
+    </div>
+
+
+    <div class="forgot-password-link">
+      <p>Forgot your <span (click)="resetOverview()">Password</span> ?</p>
+    </div>
+
+    <div class="buttons">
+      <button type="submit"  class="login">Login</button>
+      <button (click)="guestLogin()" class="guest" type="button">Guest Login</button>
+    </div>
+  </form>
+
+  <div class="new-user-link">
+    <p>
+      You don't have an account ?
+      <span (click)="NewUserOverview()"> Here</span> you can create a new account
+    </p>
+  </div>
+</div>
+
+<!-- Container for create a new User -->
+
+<div *ngIf="newUser" class="container-new-user">
+  <h1 class="new-user-headline">Create a new User</h1>
+
+  <form class="example-form" (ngSubmit)="generateUserDoc()" #myForm ngNativeValidate  >
+   
+    
+    <mat-form-field appearance="fill"  >
+      <mat-label>First Name</mat-label>
+      <input type="text" matInput required #userFirstName [(ngModel)]="user.userInfos.firstName" name="first" autocomplete="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input type="text" matInput required #userLastName [(ngModel)]="user.userInfos.lastName" name="last" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Phone number</mat-label>
+      <input type="number" matInput required #phoneNumber [(ngModel)]="user.userInfos.phone" name="number" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+
+        placeholder="Ex. pat@example.com"
+        #userMail
+        required
+        [(ngModel)]="user.userInfos.email" name="email"
+      />
+      <mat-hint></mat-hint>
+    
+    </mat-form-field>
+
+    
+
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" #password required [(ngModel)]="user.userInfos.password" name="pw" />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          type="button"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <div class="example-container column">
+      <mat-form-field appearance="fill">
+        <mat-label>Repeat password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" #passwordRepeat  required/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          type="button"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <span [ngClass]="{'red': toggle, 'white': !toggle}"  class="wrong-password-text">its not the same password!!</span>
+    </div>
+
+    <button class="login" >Create new User</button>
+  </form>
+
+  <button
+    mat-fab
+    matTooltip="Go back"
+    color="primary"
+    aria-label="Example fab with a heart icon"
+    class="go-back"
+    (click)="showLogin()"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  
+</div>
+
+<!-- Container for Reset Password -->
+<div *ngIf="reset" class="container-reset">
+  <h1 class="reset-headline">Reset your Password</h1>
+
+  <form action=""  (ngSubmit)="resetPassword()" #myForm ngNativeValidate>
+    <span class="reset-text" [ngClass]="{'red': toggleReset, 'white': !toggleReset}" >This Email dont exist!!</span>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        required
+        placeholder="Ex. pat@example.com"
+        #resetEmail
+      />
+      <mat-hint></mat-hint>
+   
+    </mat-form-field>
+  
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>new Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" #resetPw required/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          type="button"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  
+    <div class="example-container column">
+      <mat-form-field appearance="fill">
+        <mat-label>Repeat new password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" required #resetPwRepeat />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          type="button"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <span [ngClass]="{'red': toggle, 'white': !toggle}"  class="wrong-password-text">its not the same password!!</span>
+    </div>
+
+
+      <button
+      mat-fab
+      matTooltip="Go back"
+      color="primary"
+      aria-label="Example fab with a heart icon"
+      class="go-back"
+      (click)="showLogin()"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <button  class="login" >Reset Password</button>
+    
+  </form>
+  
+
+
+</div>
+
+<!-- Push Meldung New User-->
+<div class="push-new-user" *ngIf="pushNewUser">
+  <span> You created A new User </span>
+</div>
+
+<!-- Push Meldung Reset -->
+<div class="push-new-user" *ngIf="pushResetPw">
+  <span> You reset your password </span>
+</div>

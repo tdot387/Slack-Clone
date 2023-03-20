@@ -1,0 +1,36 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+<h1 *ngIf="!isGuest" class="title-dialog" mat-dialog-title>Start chatting with other user</h1>
+<div mat-dialog-content *ngIf="!isGuest">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Select user</mat-label>
+      <mat-select [(ngModel)]="memberId">
+        <mat-option *ngFor="let user of allUsers" [value]="user.docId">
+          <img class="displayUsersToAddImg" src="{{ user.userInfos.profileImg }}"> {{user.userInfos.firstName }} {{
+          user.userInfos.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="buttons">
+    <button mat-stroked-button (click)="closeDialogMember()">Cancel</button>
+    <button mat-raised-button (click)="save()" color="primary">Save</button>
+  </div>
+</div>
+
+
+<h1 *ngIf="isGuest" class="title-dialog-guest" mat-dialog-title>Permitted</h1>
+
+<div mat-dialog-content *ngIf="isGuest">
+  <div>
+    <div>
+      <p>You are logged in as guest. In order to user this function, please create a Slack Clone account.</p>
+    </div>
+
+    <div class="buttons">
+      <button mat-stroked-button (click)="closeDialogMember()">Cancel</button>
+      <button *ngIf="!isGuest" mat-raised-button color="primary" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

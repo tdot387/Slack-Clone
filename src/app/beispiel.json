@@ -1,0 +1,135 @@
+{
+    "userInfos": {
+        "Vormane": "Samuel",
+        "Nachmane": "Haas",
+        "email": "asdfa@sd.com",
+        "passwort": 123456,
+        "ist er angemeldet": false
+    },
+    "Chat verläufe": {
+        "alle allgemeine Channels": {
+            
+
+
+
+            "Allgemein": {
+                "Teilnemer": [
+                    "id",
+                    "id",
+                    "id"
+                ],
+                "Chats": {
+                    "Chat 1": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    },
+                    "Chat 2": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    }
+                }
+            },
+            "Lerngruppe": {
+                "Teilnemer": [
+                    "id",
+                    "id",
+                    "id"
+                ],
+                "Chats": {
+                    "Chat 1": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    },
+                    "Chat 2": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    }
+                }
+            }
+        },
+        "alle Gruppen": {
+            "Gruppe 1": {
+                "Teilnemer": [
+                    "id",
+                    "id",
+                    "id"
+                ],
+                "Chats": {
+                    "Chat 1": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    },
+                    "Chat 2": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    }
+                }
+            },
+            "Gruppe 2": {
+                "Teilnemer": [
+                    "id",
+                    "id",
+                    "id"
+                ],
+                "Chats": {
+                    "Chat 1": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    },
+                    "Chat 2": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    }
+                }
+            }
+        },
+        "alle private chats": {
+            "Chat 1": {
+                "Teilnemer": [
+                    "id",
+                    "id",
+                    "id"
+                ],
+                "Chats": {
+                    "Chat 1": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    },
+                    "Chat 2": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    }
+                }
+            },
+            "Chat 2": {
+                "Teilnemer": [
+                    "id",
+                    "id",
+                    "id"
+                ],
+                "Chats": {
+                    "Chat 1": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    },
+                    "Chat 2": {
+                        "Ersteller": "",
+                        "text": "",
+                        "datum": 2151351351
+                    }
+                }
+            }
+        }
+    }
+}

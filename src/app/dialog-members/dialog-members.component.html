@@ -1,0 +1,13 @@
+<div class="dialogMemberContainer">
+    <div class="titleMember">
+        
+            <mat-icon style="cursor: pointer" (click)="closeDialogMembers()">close</mat-icon>
+        
+
+        <h2>Members</h2>
+    </div>
+    <mat-card class="memberCards" *ngFor="let user of allUsers" (click)="showMemberProfile(user)">
+        <mat-card-content><img class="displayUsersImg" src="{{ user.userInfos.profileImg  }}" alt=""> {{
+            user.userInfos.firstName }} {{ user.userInfos.lastName }}</mat-card-content>
+    </mat-card>
+</div>

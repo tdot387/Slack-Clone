@@ -1,0 +1,32 @@
+<mat-toolbar class="toolbar-header">
+    <div class="header-left">
+        <span>Slack Clone</span>
+        <button mat-icon-button class="collapse-menu" (click)="toggleNavbarLeft()" matTooltip="Open/collapse menu"
+            matTooltipPosition="right">
+            <mat-icon>compare_arrows</mat-icon>
+        </button>
+    </div>
+    <div class="header-mid">
+        <form class="search-bar" ngNativeValidate>
+            <input type="text" name="searchText" placeholder="Search Slack Clone" [(ngModel)]="enteredSearchValue"
+                (input)="onSearchTextChanged($event)">
+
+            <button>
+                <img src="../../assets/img/icons/magnifying-glass-white.svg">
+
+            </button>
+        </form>
+    </div>
+
+    <div class="header-right">
+        <mat-icon matTooltip="Imprint and Data protection" matTooltipPosition="left" style="cursor: pointer;"
+            (click)="openImprint()">help</mat-icon>
+        <img class="profile-pic" id="profile-img" [src]="profileImgSrc" [matMenuTriggerFor]="menu">
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openNavbarRight()">Profile</button>
+            <button mat-menu-item routerLink="/">Logout</button>
+        </mat-menu>
+    </div>
+
+</mat-toolbar>

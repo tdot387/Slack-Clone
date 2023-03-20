@@ -1,0 +1,10 @@
+<app-header></app-header>
+<div class="content">
+    <app-navbar-left (whichContentShouldLoad)="setContent($event)" id="sidenav-leftt" *ngIf="nav.showNavbarLeft"></app-navbar-left>
+    <app-messages-history [whichContentShouldLoad]="whichContentShouldLoad" *ngIf="nav.showContent"></app-messages-history>
+    <app-navbar-right></app-navbar-right>
+</div>
+<div class="mobile-footer">
+    <mat-icon fontIcon="home" (click)="showChannels()" ></mat-icon>
+    <mat-icon fontIcon="chat" (click)="showMessages()"></mat-icon>
+</div>

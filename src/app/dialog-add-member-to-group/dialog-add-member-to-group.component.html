@@ -1,0 +1,18 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+<h1 class="title-dialog" mat-dialog-title>Add user to group</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Select user</mat-label>
+      <mat-select [(ngModel)]="memberId">
+        <mat-option *ngFor="let user of allUsers" [value]="user.docId">
+          <img class="displayUsersToAddImg" src="{{ user.userInfos.profileImg }}"> {{user.userInfos.firstName }} {{ user.userInfos.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  <div class="buttons">
+    <button mat-stroked-button (click)="closeDialogAddMember()" >Cancel</button>
+    <button mat-raised-button (click)="save()" color="primary">Save</button>
+  </div>
+</div>

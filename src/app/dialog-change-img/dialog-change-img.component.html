@@ -1,0 +1,36 @@
+<div *ngIf="!isGuest" class="dialog-images-container">
+    <div class="images-container">
+        <div class="cont-checkbox" *ngFor="let image of images; index as i">
+            <input type="radio" [id]="'myCheckbox-' + i" [name]="'myCheckbox'"
+                (click)="setSelectedImageId(image.img)" />
+            <label [for]="'myCheckbox-' + i">
+                <img [src]="image.img" />
+                <span class="cover-checkbox">
+                    <svg viewBox="0 0 12 10">
+                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                    </svg>
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button mat-stroked-button (click)="closeDialogImage()">Cancel</button>
+        <button mat-raised-button color="primary" (click)="saveImage()"
+            [attr.data-selected-image-id]="selectedImageId">Save</button>
+    </div>
+</div>
+
+<h1 *ngIf="isGuest" class="title-dialog-guest" mat-dialog-title>Permitted</h1>
+<div mat-dialog-content *ngIf="isGuest">
+    <div>
+        <div>
+            <p>You are logged in as guest. In order to user this function, please create a Slack Clone account.</p>
+        </div>
+
+        <div class="buttons">
+            <button mat-stroked-button (click)="closeDialogImage()">Cancel</button>
+            <button *ngIf="!isGuest" mat-raised-button color="primary">Save</button>
+        </div>
+    </div>
+</div>

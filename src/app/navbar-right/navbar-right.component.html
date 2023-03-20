@@ -1,0 +1,39 @@
+<mat-card class="navbar-right-container" *ngIf="nav.showNavbarRight">
+    <mat-card-header class="title-close-container">
+        <mat-card-title>Profile</mat-card-title>
+        <button mat-icon-button (click)="closeNavbarRight()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-card-header>
+
+    <div class="profileImage">
+        <button *ngIf="isItMe" mat-icon-button (click)="openDialogChangeImg()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <img mat-card-image id="profile-img" [src]="profileImgSrc">
+    </div>
+
+    <mat-card-content class="edit-user-btn">
+        <p>{{ firstName }} {{ lastName }}</p>
+        <button *ngIf="isItMe" mat-button (click)="openDialog()" color="primary">Edit</button>
+    </mat-card-content>
+    <mat-card-content *ngIf="!isGuest" class="edit-contactdata-btn">
+        <p>Contact data</p>
+        <button *ngIf="isItMe" mat-button (click)="openDialogContact()" color="primary">Edit</button>
+    </mat-card-content>
+    <div *ngIf="!isGuest" class="email-phone">
+        <mat-icon fontIcon="mail"></mat-icon>
+        <div>
+            <p>E-mail address</p>
+            <a href="mailto:{{ email }}">{{ email }}</a>
+        </div>
+    </div>
+    <div *ngIf="isItMe" class="email-phone">
+        <mat-icon *ngIf="!isGuest" fontIcon="call"></mat-icon>
+        <div *ngIf="!isGuest">
+            <p>Phone</p>
+            <a href="tel:{{ phone }}">{{ phone }}</a>
+        </div>
+    </div>
+</mat-card>
+

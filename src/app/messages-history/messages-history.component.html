@@ -1,0 +1,32 @@
+<div class="messages_history">
+  <div class="header-and-messages">
+    <div class="messages_history_header">
+      <span> # {{ whichContentShouldLoad[2] }} </span>
+      <div class="addBtn-showMembers"><mat-icon class="addBtn" *ngIf="whichContentShouldLoad[0] === 'groups'"
+          (click)="openAddMemberToGroup()" matTooltip="Add member" matTooltipPosition="left">person_add</mat-icon>
+        <button mat-raised-button (click)="openDialogMembers()" color="primary">Members</button>
+      </div>
+    </div>
+
+    <div class="messages_history_content" #messagesHistoryContent id="ng-container">
+      <ng-container *ngFor="let message of doc?.messages; let i = index">
+        <div class="single-post"
+          *ngIf="search.enteredSearchValue === '' || message.text.toLowerCase().includes(search.enteredSearchValue.toLowerCase()) || message.creator.toLowerCase().includes(search.enteredSearchValue.toLowerCase())">
+          <img class="profile-pic" src="{{ message.creatorImg }}">
+          <div class="author-and-text">
+            <div><span class="author" (click)="openCreatorProfile(message.creatorId)">{{ message.creator }}
+              </span>
+              <span class="time">{{ message.date | date:'dd.MM.yyyy' }}</span>
+            </div>
+            <span>{{ message.text }}</span>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="ngxEditor__wrapper positioning" *ngIf="editor">
+    <mat-icon class="send-button" (click)="sendMessage()" matTooltip="Send message">outgoing_mail</mat-icon>
+    <ngx-editor [editor]="editor" [(ngModel)]="html" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+  </div>
+</div>

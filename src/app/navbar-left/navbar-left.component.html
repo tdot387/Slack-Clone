@@ -1,0 +1,50 @@
+<div class="sidenav-left-container" *ngIf="nav.showNavbarLeft" #navbarLeft>
+    <div class="instanceTitle">
+        <span>DevAkademie</span>
+    </div>
+    <details class="channels" [open]="true">
+        <summary>Channels</summary>
+        <div class="channels-content">
+            <div class="single-channel" *ngFor="let channel of channels"
+                (click)="openMessageHistory(channel.docId, channel.collection, channel.headline, false); autoScrollOn()">
+                <div class="hashes">#</div>
+                <div class="channel-name"><span>{{ channel.headline }}</span></div>
+            </div>
+            <div class="add-element" (click)="openDialogChannel()">
+                <mat-icon>add_box</mat-icon>
+                <div class="channel-name"><span>Add channel</span></div>
+            </div>
+        </div>
+    </details>
+    <div class="border"></div>
+    <details class="channels" [open]="true">
+        <summary>Groups</summary>
+        <div class="channels-content">
+            <div class="single-channel" *ngFor="let group of groups"
+                (click)="openMessageHistory(group.docId, group.collection, group.headline, false)">
+                <div class="hashes">#</div>
+                <div class="channel-name"><span>{{ group.headline }}</span></div>
+            </div>
+        </div>
+        <div class="add-element" (click)="openDialogGroups()">
+            <mat-icon>add_box</mat-icon>
+            <div class="channel-name"><span>Add group</span></div>
+        </div>
+    </details>
+    <div class="border"></div>
+    <details class="channels" [open]="true">
+        <summary>Direct Messages</summary>
+        <div class="directMessages-content">
+            <div class="single-dm" *ngFor="let directMessage of directMessages; let i = index"
+                (click)="openMessageHistory(directMessage.docId, directMessage.collection, headlinesOfDirectMessages[i], false)">
+                <mat-icon>radio_button_unchecked</mat-icon>
+                <div class="channel-name"><span>{{ headlinesOfDirectMessages[i] }}</span></div>
+            </div>
+            <div class="add-element" (click)="openDialogMember()">
+                <mat-icon>add_box</mat-icon>
+                <div class="channel-name"><span>Add team member</span></div>
+            </div>
+        </div>
+    </details>
+    <div class="border"></div>
+</div>

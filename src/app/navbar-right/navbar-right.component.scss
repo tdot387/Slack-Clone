@@ -1,0 +1,114 @@
+.navbar-right-container {
+    max-width: 275px;
+    height: calc(100vh - 64px);
+    border: 1px solid rgba($color: rgb(0, 0, 0), $alpha: 0.1);
+    border-radius: unset;
+
+    @media screen and (max-width: 620px) {
+        width: 100vw;
+        height: 100vh;
+        max-width: unset;
+        top: 63px;
+    }
+
+    mat-icon {
+        color: black;
+    }
+}
+
+.title-close-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid rgba($color: rgb(0, 0, 0), $alpha: 0.1);
+    margin-bottom: 16px;
+    height: 47px;
+
+    button {
+        position: absolute;
+        z-index: 999;
+        right: 0;
+        color: black;
+    }
+}
+
+.profileImage {
+    position: relative;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+
+        @media screen and (max-width: 620px) {
+            width: 30%;
+        }
+    }
+
+    button {
+        position: absolute;
+        right: 15px;
+        z-index: 999;
+    }
+}
+
+.edit-user-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    padding-right: 0;
+
+    p {
+        margin-bottom: 0;
+        font-size: 18px;
+    }
+}
+
+.edit-contactdata-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 0;
+    border-top: 1px solid rgba($color: rgb(0, 0, 0), $alpha: 0.1);
+
+    p {
+        margin-bottom: 0;
+        font-size: 16px;
+    }
+}
+
+.email-phone {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 16px;
+    padding-bottom: 12px;
+
+    div {
+        padding-left: 16px;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+mat-card-content {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
